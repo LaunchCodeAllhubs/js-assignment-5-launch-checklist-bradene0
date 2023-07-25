@@ -21,7 +21,7 @@ window.addEventListener("load", () => {
         // Use the formSubmission function to validate and update the list
         formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
     });
-
+    //list.style.visibility = 'hidden';
     // Define a variable to hold the planet information
     let listedPlanets;
 

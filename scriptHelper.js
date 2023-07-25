@@ -69,27 +69,35 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         // Update pilot/copilot status
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
         copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-        list.style.visibility = 'visible';
+        list.style.visibility = 'hidden';
     }
 
-    // Check fuel levels and update faulty items
-    if (Number(fuelLevel) < 10000) {
-        fuelStatus.innerHTML = `Fuel level too low for launch`;
-        list.style.visibility = 'visible';
-        launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
-        launchStatus.style.color = `rgb(199, 37, 78)`;
-    } else if (Number(cargoLevel) > 10000) {
-        cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
-        launchStatus.innerHTML = `Shuttle Not Ready for Launch`; // Update launchStatus message
-        launchStatus.style.color = `rgb(199, 37, 78)`; // Update launchStatus color
-        list.style.visibility = 'visible'; // Set the visibility of the list to 'visible'
-    } else if (Number(cargoLevel) < 10000 && Number(fuelLevel) > 10000) {
-        list.style.visibility = `visible`;
-        fuelStatus.innerHTML = `Enough fuel for the journey`;
-        cargoStatus.innerHTML = `Cargo mass low enough for launch`;
-        launchStatus.innerHTML = `Shuttle ready for launch`;
-        launchStatus.style.color = `rgb(65, 159, 106)`;
-    }
+// Check fuel levels and update faulty items
+if (Number(cargoLevel) >= 10000 && Number(fuelLevel) < 10000) {
+    cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
+    fuelStatus.innerHTML = `Fuel level too low for launch`;
+    launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
+    launchStatus.style.color = `rgb(199, 37, 78)`;
+    list.style.visibility = 'visible';
+} else if (Number(cargoLevel) >= 10000) {
+    cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
+    launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
+    launchStatus.style.color = `rgb(199, 37, 78)`;
+    list.style.visibility = 'visible';
+} else if (Number(fuelLevel) < 10000) {
+    fuelStatus.innerHTML = `Fuel level too low for launch`;
+    launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
+    launchStatus.style.color = `rgb(199, 37, 78)`;
+    list.style.visibility = 'visible';
+} else {
+    list.style.visibility = `visible`;
+    fuelStatus.innerHTML = `Fuel level high enough for launch`;
+    cargoStatus.innerHTML = `Cargo mass low enough for launch`;
+    launchStatus.innerHTML = `Shuttle is Ready for Launch`;
+    launchStatus.style.color = `rgb(65, 159, 106)`;
+}
+
+
 }
 
 // Function to fetch the planets from the API
