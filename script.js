@@ -5,6 +5,10 @@ window.addEventListener("load", () => {
     // Get the form element
     const form = document.querySelector("form");
     
+    // Get the list element to try to prevent the error
+    const list = document.getElementById('faultyItems');
+    // Set the list visibility to hidden
+    list.style.visibility = 'hidden';
     // Add a submit event listener to the form
     form.addEventListener("submit", (event) => {
         // Prevent the default form submission behavior
@@ -16,7 +20,7 @@ window.addEventListener("load", () => {
         let fuelLevel = document.querySelector("input[name=fuelLevel]").value;
         let cargoLevel = document.querySelector("input[name=cargoMass]").value;
         let list = document.getElementById('faultyItems');
-        list.style.visibility = 'hidden'; // Set the initial visibility to 'hidden'
+        //list.style.visibility = 'hidden'; // Set the initial visibility to 'hidden'
 
         // Use the formSubmission function to validate and update the list
         formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);

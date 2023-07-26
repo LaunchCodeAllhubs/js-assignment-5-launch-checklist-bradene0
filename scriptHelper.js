@@ -29,6 +29,7 @@ function validateInput(testInput) {
         return 'Not a Number';
     }
 }
+
 // !!! Replace the console.log code with alert in order to use in live server
 // Function to handle the form submission
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
@@ -49,12 +50,12 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     // Set default statuses for fuel and cargo
     fuelStatus.innerHTML = "Fuel level high enough for launch";
     cargoStatus.innerHTML = "Cargo mass low enough for launch";
+    
 
 
 
 
-
-// Above this comment are changes that may impact the functionality of the liver server site. see screenshots
+// Above this comment are changes that may impact the functionality of the live server site. see screenshots
     // Check if all fields are filled
     if (validateInput(pilot) === `Empty` || validateInput(copilot) === `Empty` ||
         validateInput(fuelLevel) === `Empty` || validateInput(cargoLevel) === `Empty`) {
