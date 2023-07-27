@@ -1,5 +1,5 @@
 // Write your JavaScript code here!
-
+//test
 // When the window loads, execute this function
 window.addEventListener("load", () => {
     // Get the form element
